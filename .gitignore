@@ -35,3 +35,7 @@ data/output/
 # OS-specific
 Thumbs.db
 ehthumbs.db
+
+
+runs/
+src/yolov8n-pose.pt

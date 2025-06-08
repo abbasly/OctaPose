@@ -1,0 +1,37 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+.venv/
+
+# Poetry
+poetry.lock
+
+# Jupyter
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# VSCode/JetBrains IDEs
+.vscode/
+.idea/
+
+# Data & outputs
+data/**/*.mp4
+data/**/*.avi
+data/**/*.mov
+data/**/*.jpg
+data/**/*.png
+data/**/*.npz
+data/output/
+
+# Logs and temp
+*.log
+*.tmp
+*.bak
+.DS_Store
+
+# OS-specific
+Thumbs.db
+ehthumbs.db

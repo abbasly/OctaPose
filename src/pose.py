@@ -3,6 +3,7 @@ import sys
 import mediapipe as mp
 from pathlib import Path
 
+
 def view_and_save_pose(video_path: str, output_path: str, sample_rate: int = 1):
     mp_pose = mp.solutions.pose
     pose = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5)
@@ -17,19 +18,16 @@ def view_and_save_pose(video_path: str, output_path: str, sample_rate: int = 1):
         return
 
     # Get video info
-    width  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    fps    = cap.get(cv2.CAP_PROP_FPS)
+    fps = cap.get(cv2.CAP_PROP_FPS)
     out_fps = fps // sample_rate if sample_rate > 1 else fps
 
     # Create writer
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     writer = cv2.VideoWriter(
-        str(output_path),
-        cv2.VideoWriter_fourcc(*"mp4v"),
-        out_fps,
-        (width, height)
+        str(output_path), cv2.VideoWriter_fourcc(*"mp4v"), out_fps, (width, height)
     )
 
     print("[INFO] Running pose estimation. Press 'space' to pause/resume, 'q' to quit.")
@@ -45,7 +43,9 @@ def view_and_save_pose(video_path: str, output_path: str, sample_rate: int = 1):
                 results = pose.process(rgb)
 
                 if results.pose_landmarks:
-                    drawing.draw_landmarks(frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS)
+                    drawing.draw_landmarks(
+                        frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS
+                    )
 
                 writer.write(frame)
                 cv2.imshow("OctaPose – Annotated Video", frame)
@@ -53,9 +53,9 @@ def view_and_save_pose(video_path: str, output_path: str, sample_rate: int = 1):
             frame_count += 1
 
         key = cv2.waitKey(1) & 0xFF
-        if key == ord('q'):
+        if key == ord("q"):
             break
-        elif key == ord(' '):
+        elif key == ord(" "):
             paused = not paused
             print("[Paused]" if paused else "[Resumed]")
 
@@ -69,13 +69,19 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("\n[!] Missing argument: video file path.\n")
         print("Usage:")
-        print("    poetry run python src/pose.py <video_path> [output_path] [sample_rate]")
+        print(
+            "    poetry run python src/pose.py <video_path> [output_path] [sample_rate]"
+        )
         print("\nExample:")
-        print("    poetry run python src/pose.py data/videos/conor_vs_aldo.mp4 data/output/annotated_output.mp4 1\n")
+        print(
+            "    poetry run python src/pose.py data/videos/conor_vs_aldo.mp4 data/output/annotated_output.mp4 1\n"
+        )
         sys.exit(1)
 
     video_path = sys.argv[1]
-    output_path = sys.argv[2] if len(sys.argv) > 2 else "data/output/annotated_output.mp4"
+    output_path = (
+        sys.argv[2] if len(sys.argv) > 2 else "data/output/annotated_output.mp4"
+    )
     sample_rate = int(sys.argv[3]) if len(sys.argv) > 3 else 1
 
     view_and_save_pose(video_path, output_path, sample_rate)

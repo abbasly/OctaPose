@@ -9,6 +9,8 @@ if __name__ == "__main__":
     video_path = sys.argv[1]
 
     model = YOLO("yolov8n-pose.pt")  # Make sure it's in the root dir or give full path
-    results = model(video_path, save=True, show=True)  # Inference and save annotated video
+    results = model(
+        video_path, save=True, show=True
+    )  # Inference and save annotated video
 
     print("Inference done. Output saved in the 'runs/pose/' directory.")

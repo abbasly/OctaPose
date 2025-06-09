@@ -9,6 +9,9 @@ __pycache__/
 # Poetry
 poetry.lock
 
+# Notebooks
+notebooks/
+
 # Jupyter
 .ipynb_checkpoints/
 *.nbconvert.ipynb
@@ -39,3 +42,4 @@ ehthumbs.db
 
 runs/
 src/yolov8n-pose.pt
+sort

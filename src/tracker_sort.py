@@ -2,7 +2,7 @@ import cv2
 from ultralytics import YOLO
 import sys
 
-sys.path.append("../sort")
+sys.path.append("/Users/anar/Desktop/tum/OctaPose/sort")
 from sort import Sort
 import numpy as np
 import random
@@ -20,7 +20,7 @@ def get_color(track_id):
 
 
 # Input and output paths
-input_video_path = "../data/videos/conor_vs_aldo.mp4"
+input_video_path = "/Users/anar/Desktop/tum/OctaPose/data/videos/conor_vs_aldo.mp4"
 video_name = os.path.splitext(os.path.basename(input_video_path))[0]
 output_video_path = f"../data/output/{video_name}_tracked.mp4"
 

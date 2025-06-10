@@ -43,3 +43,4 @@ ehthumbs.db
 runs/
 src/yolov8n-pose.pt
 sort/
+*.pt

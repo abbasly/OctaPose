@@ -44,3 +44,5 @@ runs/
 src/yolov8n-pose.pt
 sort/
 *.pt
+data/videos/
+data/output

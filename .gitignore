@@ -28,6 +28,7 @@ data/**/*.jpg
 data/**/*.png
 data/**/*.npz
 data/output/
+pose/
 
 # Logs and temp
 *.log

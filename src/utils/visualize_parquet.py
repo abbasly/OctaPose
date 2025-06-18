@@ -4,8 +4,8 @@ import matplotlib.patches as patches
 from matplotlib.animation import FuncAnimation
 import ast
 
-FIGHTER_ID = 1
-FILE_PATH = "../data/pose_tables/conor_fixed.parquet"
+FIGHTER_ID = 3
+FILE_PATH = "../data/pose_tables/conor/conor-alvarez.parquet"
 
 # Load Parquet data
 df = pd.read_parquet(FILE_PATH)

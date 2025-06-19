@@ -3,9 +3,9 @@ import pyarrow as pa
 import pandas as pd
 
 # --- CONFIG ---
-INPUT_PATH = "../data/pose_tables/conor/conor-dustin.parquet"
-OUTPUT_PATH = "../data/pose_tables/conor/conor-dustin.parquet"
-TARGET_ID = 1  # the track_id you want to keep
+INPUT_PATH = "../data/poses/dustin5.parquet"
+OUTPUT_PATH = "../data/poses/clean/dustin5.parquet"
+TARGET_ID = 2  # the track_id you want to keep
 
 # --- Load table ---
 table = pq.read_table(INPUT_PATH)

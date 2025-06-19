@@ -8,8 +8,9 @@ import cv2
 import os
 
 # --- CONFIG ---
-VIDEO_PATH = "../data/videos/conor.mp4"
-OUT_PATH   = "../data/pose_tables/conor.parquet"
+VIDEO_PATH = "../data/new_data/dustin/dustin5.mp4"
+OUT_PATH   = "../data/poses/dustin5.parquet"
+VIDEO_SAVE = "../data/pose-videos/"
 DEVICE     = "cpu"  # or 'cuda:0' if you want and have GPU
 TOP_K      = 3      # keep only top-K detections per frame
 
@@ -23,7 +24,8 @@ results = model.track(
     stream=True,
     persist=True,
     device=DEVICE,
-    save=True
+    save=True,
+    save_dir=VIDEO_SAVE
 )
 
 # --- Collect per-frame pose data ---

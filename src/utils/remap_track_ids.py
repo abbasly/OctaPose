@@ -2,12 +2,10 @@ import pyarrow.parquet as pq
 import pyarrow as pa
 
 # --- HARDCODED CONFIG ---
-INPUT_PATH = "../data/pose_tables/adesanya-costa.parquet"
-OUTPUT_PATH = "../data/pose_tables/adesanya-costa.parquet"
+INPUT_PATH = "../data/poses/conor1.parquet"
+OUTPUT_PATH = "../data/poses/conor1.parquet"
 REMAPPING = {
-     6: 1,  # Add more as needed...
-     4: 2,
-     20: 1,
+     20 : 1
 }
 
 # --- Load table ---

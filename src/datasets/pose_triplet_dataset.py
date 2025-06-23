@@ -67,8 +67,9 @@ class PoseTripletDataset(Dataset):
     def __len__(self):
         return len(self.data)
 
-    def __getitem__(self, _):
+    def __getitem__(self, index):
         anchor_idx = random.randint(0, len(self.data) - 1)
+        anchor_idx = index
         anchor = self.data[anchor_idx]
         fighter = anchor["fighter"]
 

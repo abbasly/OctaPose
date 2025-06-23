@@ -27,7 +27,7 @@ def train_model(model, dataloader, optimizer, alpha=0.3, device="cpu", epoch = 2
 
             loss_cls = ce_loss(logits, labels)
             loss_trip = triplet_loss(emb_a, emb_p, emb_n)
-            loss = loss_cls
+            loss = loss_cls + alpha*loss_trip
 
             optimizer.zero_grad()
             loss.backward()
